@@ -1,0 +1,130 @@
+{
+  "concrete": {
+    "model": {
+      "mae_mpa": 5.169,
+      "rmse_mpa": 6.543,
+      "n": 120,
+      "pi95_coverage": 0.858,
+      "mean_pi95_halfwidth_mpa": 10.802,
+      "by_age": {
+        "1": {
+          "mae_mpa": 2.855,
+          "rmse_mpa": 4.201,
+          "n": 24,
+          "pi95_coverage": 0.917
+        },
+        "3": {
+          "mae_mpa": 5.079,
+          "rmse_mpa": 6.335,
+          "n": 24,
+          "pi95_coverage": 0.875
+        },
+        "5": {
+          "mae_mpa": 5.24,
+          "rmse_mpa": 6.353,
+          "n": 24,
+          "pi95_coverage": 0.875
+        },
+        "14": {
+          "mae_mpa": 5.796,
+          "rmse_mpa": 6.754,
+          "n": 24,
+          "pi95_coverage": 0.792
+        },
+        "28": {
+          "mae_mpa": 6.875,
+          "rmse_mpa": 8.384,
+          "n": 24,
+          "pi95_coverage": 0.833
+        }
+      },
+      "provenance": {
+        "kind": "computed",
+        "source": "held-out evaluation vs measured rows",
+        "model_version": "boxcrete-c9447e72-n280",
+        "seed": 0,
+        "split_id": "concrete-s0-a41842cf8e",
+        "model_label": "BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split"
+      }
+    },
+    "train_mean_per_age": {
+      "mae_mpa": 9.963,
+      "rmse_mpa": 12.633,
+      "n": 120,
+      "label": "baseline: train mean strength per curing age"
+    },
+    "ridge": {
+      "mae_mpa": 4.047,
+      "rmse_mpa": 5.751,
+      "n": 120,
+      "label": "baseline: ridge regression on composition + log1p(age)"
+    },
+    "split": {
+      "split_id": "concrete-s0-a41842cf8e",
+      "train_mixes": 56,
+      "heldout_mixes": 24,
+      "fit_seconds": 63.78
+    }
+  },
+  "mortar": {
+    "model": {
+      "mae_mpa": 5.474,
+      "rmse_mpa": 7.213,
+      "n": 78,
+      "pi95_coverage": 0.885,
+      "mean_pi95_halfwidth_mpa": 14.086,
+      "by_age": {
+        "1": {
+          "mae_mpa": 3.587,
+          "rmse_mpa": 4.635,
+          "n": 19,
+          "pi95_coverage": 0.947
+        },
+        "3": {
+          "mae_mpa": 5.254,
+          "rmse_mpa": 6.523,
+          "n": 20,
+          "pi95_coverage": 0.95
+        },
+        "5": {
+          "mae_mpa": 6.185,
+          "rmse_mpa": 7.897,
+          "n": 19,
+          "pi95_coverage": 0.842
+        },
+        "28": {
+          "mae_mpa": 6.809,
+          "rmse_mpa": 8.985,
+          "n": 20,
+          "pi95_coverage": 0.8
+        }
+      },
+      "provenance": {
+        "kind": "computed",
+        "source": "held-out evaluation vs measured rows",
+        "model_version": "boxcrete-0bbc9c8a-n192",
+        "seed": 0,
+        "split_id": "mortar-s0-44fc9d88f0",
+        "model_label": "BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split"
+      }
+    },
+    "train_mean_per_age": {
+      "mae_mpa": 10.015,
+      "rmse_mpa": 13.321,
+      "n": 78,
+      "label": "baseline: train mean strength per curing age"
+    },
+    "ridge": {
+      "mae_mpa": 6.473,
+      "rmse_mpa": 11.943,
+      "n": 78,
+      "label": "baseline: ridge regression on composition + log1p(age)"
+    },
+    "split": {
+      "split_id": "mortar-s0-44fc9d88f0",
+      "train_mixes": 49,
+      "heldout_mixes": 20,
+      "fit_seconds": 27.91
+    }
+  }
+}

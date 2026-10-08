@@ -1,0 +1,52 @@
+{
+  "path": "/tmp/boxcrete-src/data/boxcrete_data.csv",
+  "sha256": "8cf705f4558b941e049b997ff97122c06d4d4420f972f9ba2aec49ca09649402",
+  "boxcrete_commit": "116ad287351bee2fa4742ca5d8ce1b7d44db44c9",
+  "rows": 670,
+  "mixtures": 149,
+  "mixtures_by_class": {
+    "concrete": 80,
+    "mortar": 69
+  },
+  "time_values_days": [
+    1,
+    3,
+    5,
+    14,
+    28
+  ],
+  "time_semantics": "curing age in days at which 3 cylinders were broken; one row per (mix, age)",
+  "rows_by_time": {
+    "1": 147,
+    "3": 148,
+    "5": 148,
+    "14": 80,
+    "28": 147
+  },
+  "units": {
+    "quantities": "kg/m3",
+    "strength_raw": "psi",
+    "strength_model": "MPa",
+    "psi_to_mpa": 0.00689476,
+    "temp": "C",
+    "gwp": "kg CO2e/m3",
+    "slump": "in"
+  },
+  "strength_mpa_range": [
+    0.54,
+    110.52
+  ],
+  "same_recipe_different_name": [
+    [
+      "M22",
+      "M36"
+    ]
+  ],
+  "provenance": {
+    "kind": "measured",
+    "source": "BOxCrete boxcrete_data.csv @ 116ad28",
+    "model_version": null,
+    "seed": null,
+    "split_id": null
+  }
+}

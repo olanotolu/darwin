@@ -1,0 +1,150 @@
+BOxCrete runtime: available; backend=boxcrete
+
+##### data #####
+{
+ "path": "/tmp/boxcrete-src/data/boxcrete_data.csv",
+ "sha256": "8cf705f4558b941e049b997ff97122c06d4d4420f972f9ba2aec49ca09649402",
+ "boxcrete_commit": "116ad287351bee2fa4742ca5d8ce1b7d44db44c9",
+ "rows": 670,
+ "mixtures": 149,
+ "mixtures_by_class": {
+  "concrete": 80,
+  "mortar": 69
+ },
+ "time_values_days": [
+  1,
+  3,
+  5,
+  14,
+  28
+ ],
+ "time_semantics": "curing age in days at which 3 cylinders were broken; one row per (mix, age)",
+ "rows_by_time": {
+  "1": 147,
+  "3": 148,
+  "5": 148,
+  "14": 80,
+  "28": 147
+ },
+ "units": {
+  "quantities": "kg/m3",
+  "strength_raw": "psi",
+  "strength_model": "MPa",
+  "psi_to_mpa": 0.00689476,
+  "temp": "C",
+  "gwp": "kg CO2e/m3",
+  "slump": "in"
+ },
+ "strength_mpa_range": [
+  0.54,
+  110.52
+ ],
+ "same_recipe_different_name": [
+  [
+   "M22",
+   "M36"
+  ]
+ ]
+}
+saved /home/hatch/workspace/darwin/results/p0_data_card.json
+
+##### evaluate #####
+[concrete] concrete-s0-a41842cf8e train=56 mixes/280 rows, held-out=24 mixes/120 rows; model: BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split
+   GP     MAE 5.17  RMSE 6.54 MPa  95%PI coverage 0.858  (28d MAE 6.875)
+   train_mean_per_age MAE 9.96  RMSE 12.63 MPa
+   ridge              MAE 4.05  RMSE 5.75 MPa
+[mortar] mortar-s0-44fc9d88f0 train=49 mixes/192 rows, held-out=20 mixes/78 rows; model: BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split
+   GP     MAE 5.47  RMSE 7.21 MPa  95%PI coverage 0.885  (28d MAE 6.809)
+   train_mean_per_age MAE 10.02  RMSE 13.32 MPa
+   ridge              MAE 6.47  RMSE 11.94 MPa
+saved /home/hatch/workspace/darwin/results/p0_evaluate_seed0.json
+
+##### candidates #####
+[concrete] generated 200: feasible 119, rejected 81; reason counts {'WB_RATIO_BELOW_MIN': 66, 'WB_RATIO_ABOVE_MAX': 15}
+   example rejection: [{"code": "WB_RATIO_BELOW_MIN", "field": "w_b", "limit": 0.25, "value": 0.2047}]
+   top-3 generated (PREDICTION-ONLY, never measured):
+     GEN-con-s0-0089  pred28 91.21±11.58 MPa  EI 0.229
+     GEN-con-s0-0097  pred28 85.34±11.51 MPa  EI 0.058
+     GEN-con-s0-0121  pred28 88.64±10.08 MPa  EI 0.053
+
+##### compare #####
+[concrete-s0-a41842cf8e] initial fit BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split v=boxcrete-c9447e72-n280 (68.9s); pool=24 eligible=24
+  step  1 pick    C8  pred28  55.78±16.16 ->  63.59  measured 63.88  test MAE 4.910 -> 4.741  (3.44s)
+  step  2 pick    C9  pred28  87.80± 6.72 ->  80.01  measured 79.621  test MAE 4.612 -> 4.797  (3.29s)
+  step  3 pick   C11  pred28  68.75± 8.60 ->  76.84  measured 77.483  test MAE 4.817 -> 4.614  (5.51s)
+  step  4 pick   C13  pred28  62.54± 9.56 ->  72.43  measured 74.098  test MAE 4.595 -> 4.624  (4.25s)
+  step  5 pick    C2  pred28  56.71± 9.68 ->  64.79  measured 65.438  test MAE 4.561 -> 4.579  (3.46s)
+  step  6 pick   C19  pred28  41.65± 9.90 ->  58.27  measured 58.523  test MAE 4.251 -> 4.118  (3.53s)
+  step  7 pick   C27  pred28  47.04± 7.18 ->  36.37  measured 36.094  test MAE 3.844 -> 3.827  (4.04s)
+  step  8 pick   C64  pred28  51.22± 6.07 ->  50.06  measured 49.208  test MAE 3.932 -> 3.898  (2.88s)
+  step  9 pick   C15  pred28  70.36± 4.02 ->  65.75  measured 65.024  test MAE 3.936 -> 3.926  (4.01s)
+  step 10 pick   C66  pred28  34.72± 6.54 ->  28.48  measured 28.02  test MAE 3.909 -> 3.750  (3.78s)
+  seed 0: acquisition best28 79.62  random 77.48  pool max 79.62 MPa
+[concrete-s1-b7d2e3b460] initial fit BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split v=boxcrete-c7a58ff1-n280 (104.62s); pool=24 eligible=24
+  step  1 pick    C3  pred28  77.92±19.77 ->  64.66  measured 64.473  test MAE 3.527 -> 3.562  (3.31s)
+  step  2 pick    C6  pred28 102.13± 2.92 -> 108.92  measured 110.516  test MAE 3.505 -> 3.574  (3.88s)
+  step  3 pick    C8  pred28  65.85±12.54 ->  63.67  measured 63.88  test MAE 3.603 -> 3.637  (1.89s)
+  step  4 pick    C9  pred28  89.32± 3.15 ->  80.18  measured 79.621  test MAE 3.311 -> 3.371  (2.87s)
+  step  5 pick   C16  pred28  45.37± 8.95 ->  36.62  measured 35.067  test MAE 3.206 -> 3.246  (3.53s)
+  step  6 pick   C10  pred28  63.52± 6.39 ->  54.48  measured 55.33  test MAE 3.148 -> 3.099  (3.87s)
+  step  7 pick   C23  pred28  57.75± 6.05 ->  66.55  measured 69.223  test MAE 2.873 -> 2.481  (3.66s)
+  step  8 pick   C24  pred28  62.98± 3.19 ->  69.80  measured 71.568  test MAE 2.351 -> 2.420  (3.78s)
+  step  9 pick   C44  pred28  45.40± 3.97 ->  43.92  measured 43.154  test MAE 2.460 -> 2.378  (4.42s)
+  step 10 pick   C34  pred28  39.71± 3.52 ->  43.11  measured 43.403  test MAE 2.411 -> 2.398  (3.71s)
+  seed 1: acquisition best28 110.52  random 63.88  pool max 110.52 MPa
+[concrete-s2-f4d83b7334] initial fit BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split v=boxcrete-74738524-n280 (53.37s); pool=24 eligible=24
+  step  1 pick    C5  pred28  77.16± 9.03 -> 101.93  measured 102.897  test MAE 4.216 -> 3.367  (2.91s)
+  step  2 pick    C6  pred28 101.79± 2.24 -> 108.52  measured 110.516  test MAE 3.276 -> 3.451  (2.96s)
+  step  3 pick    C8  pred28  66.76±17.51 ->  63.63  measured 63.88  test MAE 3.366 -> 3.358  (2.76s)
+  step  4 pick   C16  pred28  46.30±13.00 ->  36.47  measured 35.067  test MAE 3.224 -> 3.184  (2.24s)
+  step  5 pick   C15  pred28  67.30± 7.99 ->  65.47  measured 65.024  test MAE 3.219 -> 3.211  (2.38s)
+  step  6 pick   C47  pred28  47.75±10.51 ->  37.98  measured 38.073  test MAE 2.873 -> 2.879  (2.48s)
+  step  7 pick   C22  pred28  65.67± 7.43 ->  65.52  measured 66.355  test MAE 2.945 -> 2.898  (3.19s)
+  step  8 pick   C35  pred28  40.48± 8.78 ->  33.23  measured 31.93  test MAE 2.870 -> 2.814  (1.84s)
+  step  9 pick   C26  pred28  53.38± 5.85 ->  53.49  measured 51.366  test MAE 2.735 -> 2.651  (2.76s)
+  step 10 pick   C30  pred28  58.81± 5.16 ->  57.60  measured 57.723  test MAE 2.635 -> 2.623  (3.85s)
+  seed 2: acquisition best28 110.52  random 102.90  pool max 110.52 MPa
+[concrete-s3-92fe1d73ad] initial fit BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split v=boxcrete-400fb3d1-n280 (46.93s); pool=24 eligible=24
+  step  1 pick    C8  pred28  75.77±15.29 ->  63.87  measured 63.88  test MAE 4.992 -> 4.993  (3.75s)
+  step  2 pick    C6  pred28 101.60± 2.14 -> 106.17  measured 110.516  test MAE 4.984 -> 4.718  (2.59s)
+  step  3 pick    C3  pred28  59.09±16.37 ->  64.42  measured 64.473  test MAE 4.722 -> 4.670  (2.35s)
+  step  4 pick   C12  pred28  54.36±14.57 ->  24.49  measured 23.511  test MAE 4.055 -> 3.933  (2.21s)
+  step  5 pick   C21  pred28  60.45± 9.71 ->  57.16  measured 56.827  test MAE 4.027 -> 3.385  (3.06s)
+  step  6 pick   C25  pred28  45.88±12.86 ->  54.77  measured 55.11  test MAE 3.345 -> 3.369  (3.04s)
+  step  7 pick    C2  pred28  53.04± 7.61 ->  64.19  measured 65.438  test MAE 2.972 -> 2.980  (3.6s)
+  step  8 pick   C30  pred28  56.39± 5.70 ->  57.41  measured 57.723  test MAE 3.080 -> 3.065  (3.51s)
+  step  9 pick   C20  pred28  38.59± 6.93 ->  39.09  measured 37.852  test MAE 3.173 -> 3.143  (4.09s)
+  step 10 pick   C28  pred28  60.32± 3.46 ->  63.97  measured 64.425  test MAE 3.052 -> 3.262  (3.77s)
+  seed 3: acquisition best28 110.52  random 65.44  pool max 110.52 MPa
+[concrete-s4-cdf3b75582] initial fit BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split v=boxcrete-bb1e121c-n280 (49.8s); pool=24 eligible=24
+  step  1 pick    C6  pred28 103.10± 4.15 -> 109.03  measured 110.516  test MAE 4.460 -> 4.382  (1.4s)
+  step  2 pick    C7  pred28  73.40±10.85 ->  81.85  measured 81.689  test MAE 4.077 -> 4.014  (0.92s)
+  step  3 pick   C16  pred28  52.94±11.01 ->  36.80  measured 35.067  test MAE 3.630 -> 3.384  (2.74s)
+  step  4 pick   C10  pred28  65.36± 6.99 ->  54.45  measured 55.33  test MAE 3.232 -> 3.208  (3.02s)
+  step  5 pick   C17  pred28  43.43± 6.41 ->  37.64  measured 36.659  test MAE 3.089 -> 3.096  (3.99s)
+  step  6 pick   C34  pred28  41.83± 4.75 ->  43.71  measured 43.403  test MAE 3.193 -> 3.209  (3.35s)
+  step  7 pick   C26  pred28  54.97± 3.89 ->  54.32  measured 51.366  test MAE 3.155 -> 3.043  (3.91s)
+  step  8 pick   C66  pred28  33.24± 5.16 ->  28.66  measured 28.02  test MAE 3.064 -> 3.104  (4.98s)
+  step  9 pick   C30  pred28  61.22± 3.33 ->  57.73  measured 57.723  test MAE 3.039 -> 2.994  (3.81s)
+  step 10 pick   C39  pred28  48.05± 3.64 ->  46.00  measured 45.912  test MAE 2.991 -> 3.053  (4.06s)
+  seed 4: acquisition best28 110.52  random 110.52  pool max 110.52 MPa
+
+=== acquisition (EI) vs random — concrete, K=10, 5 seeded trials ===
+model: BOxCrete SustainableConcreteModel (V2 strength GP), refit on DARWIN train split
+step | EI best28 mean±std | random best28 mean±std (MPa)
+   1 |   81.13 ± 23.50  |   52.66 ± 13.80
+   2 |  104.34 ± 13.82  |   65.57 ± 23.51
+   3 |  104.34 ± 13.82  |   71.25 ± 19.93
+   4 |  104.34 ± 13.82  |   71.25 ± 19.93
+   5 |  104.34 ± 13.82  |   71.25 ± 19.93
+   6 |  104.34 ± 13.82  |   80.27 ± 25.93
+   7 |  104.34 ± 13.82  |   81.98 ± 24.09
+   8 |  104.34 ± 13.82  |   81.98 ± 24.09
+   9 |  104.34 ± 13.82  |   81.98 ± 24.09
+  10 |  104.34 ± 13.82  |   84.04 ± 21.52
+final diff (EI - random) +20.29 ± 23.51 MPa; found pool max: EI 5/5, random 1/5
+verdict: acquisition better than random
+saved /home/hatch/workspace/darwin/results/p0_compare_concrete_K10_T5.json
+
+done in 661s
+exit=0
